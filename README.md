@@ -1,6 +1,7 @@
 # Google Docs Clone
 
-A collaborative document editor built with Next.js, featuring real-time collaboration, authentication, and organizational support. This application provides a Google Docs-like experience with rich text editing, live cursors, comments, and document management.
+A collaborative document editor built with Next.js, featuring real-time collaboration, authentication, and organizational support. This application provides a Google Docs-like experience with rich text editing, live cursors, comments, and document management...
+
 
 ## Features
 
