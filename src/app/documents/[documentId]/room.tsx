@@ -41,8 +41,13 @@ export function Room({ children }: { children: ReactNode }) {
 
         const response = await fetch(endpoint, {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ room }),
         });
+
+        if (!response.ok) {
+          throw new Error(`Liveblocks auth failed: ${response.status} ${response.statusText}`);
+        }
 
         return await response.json();
       }}
@@ -70,6 +75,7 @@ export function Room({ children }: { children: ReactNode }) {
     >
       <RoomProvider
         id={params.documentId as string}
+        initialPresence={{ cursor: null }}
         initialStorage={{ leftMargin: LEFT_MARGIN_DEFAULT, rightMargin: RIGHT_MARGIN_DEFAULT }}
       >
         <ClientSideSuspense fallback={<FullscreenLoader label="Room loading..." />}>
